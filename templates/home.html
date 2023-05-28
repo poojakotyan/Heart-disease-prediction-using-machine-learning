@@ -1,0 +1,188 @@
+{% load static %}
+<html>
+  <head>
+      <title>heart data</title>
+      <style>
+      /*html, body
+      {
+      min-height: 100%;
+      background:url({% static 'images/bgimage.jpg' %});
+      background-size:cover;
+      }*/
+      body, div, form, input, select, textarea, label {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 20px;
+      }
+      h1 {
+      position: absolute;
+      margin:0;
+      font-size: 60px;
+      color: #227093;
+      line-height: 83px;
+      top:50px;
+      }
+      legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      color: white;
+      background-color: #1c87c9;
+      border-radius:5px;
+      }
+      .testbox {
+      display: flex;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      background-image: linear-gradient(to left top, #295b60, #a9b5b7, #bcc5c6, #cfd5d5, #295b60);
+      box-shadow: 0 0 8px #0e7f83;
+      }
+      .banner {
+      position: relative;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(205, 177, 177, 0.2);
+      border-radius:10px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+       .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #006622;
+      color: #006622;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background:  #1c87c9;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #0692e8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+    <form action="result" method="get">
+      <div class="banner">
+        <h1>HEART DISEASE</h1>
+      </div>
+      <br/>
+      <fieldset>
+        <legend>Enter The Details</legend>
+{% csrf_token %}
+        <div class="colums">
+          <div class="item">
+            <label><b>Age</b></label>
+            <input type="text" name="n1" required>
+          </div>
+          <div class="item">
+             <label><b>Gender</b></label>
+            <input type="text" placeholder="female : 1 and male : 0" name="n2" required>
+          </div>
+          <div class="item">
+            <label><b>Chest_Pain_Type</b></label>
+            <input type="text" name="n3" required>
+          </div>
+          <div class="item">
+            <label><b>BP</b></label>
+            <input type="text" name="n4" required>
+          </div>
+          <div class="item">
+            <label><b>Cholesterol</b></label>
+            <input type="text" name="n5" required>
+          </div>
+          <div class="item">
+           <label><b>FBS_Over_120</b></label>
+            <input type="text" name="n6" required>
+          </div>
+          <div class="item">
+            <label><b>EKG_Results</b></label>
+            <input type="text" name="n7" required>
+          </div>
+          <div class="item">
+           <label><b>Max_HR</b></label>
+            <input type="text" name="n8" required>
+          </div>
+          <div class="item">
+           <label><b>Exercise_Angina</b></label>
+            <input type="text" name="n9" required>
+          </div>
+          <div class="item">
+           <label><b>ST_Depression</b></label>
+            <input type="text" name="n10" required>
+          </div>
+          <div class="item">
+           <label><b>Slope_Of_ST</b></label>
+            <input type="text" name="n11" required>
+          </div>
+          <div class="item">
+           <label><b>Number_Of_Vessels_Fluro</b></label>
+            <input type="text" name="n12" required>
+          </div>
+          <div class="item">
+           <label><b>Thallium</b></label>
+            <input type="text" name="n13" required>
+          </div>
+          <!-- <div class="item">
+            <label><b>Result</b></label>
+             <input type="text" name="result" required>
+           </div> -->
+        </div>
+      </fieldset>
+      <div class="btn-block">
+              <button type="submit">Predict</button>
+      </div>
+      <div class="item">
+        <h2>Result : {{result2}}</h2>
+    </div>
+    </form>
+    </div>
+  </body>
+</html>
